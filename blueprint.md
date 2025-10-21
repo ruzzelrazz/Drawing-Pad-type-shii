@@ -23,13 +23,22 @@ A responsive and intuitive digital drawing application built with the HTML5 Canv
 *   **Background Color:** A color picker to change the canvas background.
 *   **UI Enhancements:** New icons and controls integrated into the toolbar for the new features.
 
+### V3: Shape Tools, Pan & Zoom, and Creative Brushes
+
+*   **Shape Tools:** New tools to draw perfect rectangles, circles, and straight lines.
+*   **Pan & Zoom:** Ability to pan the canvas by dragging and zoom using the mouse wheel.
+*   **Creative Brushes:** Addition of a 'Spray' brush and a 'Calligraphy' brush for artistic effects.
+*   **UI Update:** The toolbar is reorganized with tool groups for a cleaner and more intuitive layout.
+
 ## Current Plan
 
-*   **Implement V2 Features:**
-    1.  **Update `index.html`:** Add new buttons to the toolbar for Undo, Redo, Download, and a new color picker for the background.
-    2.  **Update `style.css`:** Style the new toolbar icons and ensure they match the existing design, including hover and active states.
+*   **Implement V3 Features:**
+    1.  **Update `index.html`:** Restructure the toolbar to group tools (Brush, Shapes, Navigation). Add new buttons for Rectangle, Circle, Line, Pan, Spray Brush, and Calligraphy Brush.
+    2.  **Update `style.css`:** Style the new toolbar groups and buttons, ensuring a clear visual distinction for active tools.
     3.  **Update `main.js`:**
-        *   Implement an undo/redo history stack to save and restore canvas states.
-        *   Create a function to handle downloading the canvas content as an image.
-        *   Add logic to change the background color while preserving the existing drawing.
-    4.  Verify all new features work correctly and the application remains stable.
+        *   Implement a state management system to track the currently selected tool.
+        *   Develop the logic for drawing shapes, including live previews during creation.
+        *   Integrate pan (translation) and zoom (scaling) functionality, correctly mapping mouse coordinates.
+        *   Implement the custom logic for the 'Spray' and 'Calligraphy' brushes.
+        *   Refactor the event listeners to handle the different behaviors of each tool.
+    4.  Verify all new features work harmoniously and the app remains robust.

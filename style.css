@@ -1,7 +1,6 @@
 :root {
     --font-primary: 'Poppins', sans-serif;
     --color-bg: #f0f2f5;
-    --color-canvas-bg: #ffffff;
     --color-toolbar-bg: rgba(255, 255, 255, 0.85);
     --color-text: #333;
     --color-shadow: rgba(0, 0, 0, 0.15);
@@ -25,11 +24,9 @@ body {
 }
 
 #drawing-canvas {
-    background-color: var(--color-canvas-bg);
+    background-color: #ffffff;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    cursor: crosshair;
-    touch-action: none; /* Prevents scrolling on touch devices */
 }
 
 .toolbar {
@@ -44,21 +41,34 @@ body {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
-    align-items: center;
-    padding: 15px 25px;
-    gap: 20px;
+    align-items: stretch;
+    padding: 10px;
+    gap: 10px;
     color: var(--color-text);
 }
 
-.toolbar-section {
+.toolbar-group {
     display: flex;
     align-items: center;
+    padding: 0 15px;
     gap: 10px;
 }
 
-.toolbar-section label {
-    font-weight: 600;
-    font-size: 0.9rem;
+.toolbar-group:not(:last-child) {
+    border-right: 1px solid #e0e0e0;
+}
+
+.tool-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.tool-options {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 input[type="color"] {
@@ -71,21 +81,11 @@ input[type="color"] {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-input[type="color"]::-webkit-color-swatch-wrapper {
-    padding: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-    border: 2px solid #ddd;
-    border-radius: 50%;
-}
-input[type="color"]:hover {
-    transform: scale(1.1);
-}
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch { border: 2px solid #ddd; border-radius: 50%; }
+input[type="color"]:hover { transform: scale(1.1); }
 
-input[type="range"] {
-    cursor: pointer;
-    width: 120px;
-}
+input[type="range"] { cursor: pointer; width: 100px; }
 
 .tool-btn {
     background: transparent;
@@ -99,23 +99,17 @@ input[type="range"] {
     color: var(--color-text);
 }
 
-.tool-btn i {
-    width: 20px;
-    height: 20px;
-}
+.tool-btn i { width: 20px; height: 20px; }
 
-.tool-btn:hover, .tool-btn.active {
+.tool-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);
     color: var(--color-highlight);
-    box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
 }
 
-.tool-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+.tool-btn.active-tool {
+    background-color: var(--color-highlight);
+    color: white;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
 }
 
-.actions, .advanced {
-    border-left: 1px solid #e0e0e0;
-    padding-left: 20px;
-}
+.tool-btn:disabled { cursor: not-allowed; opacity: 0.5; }

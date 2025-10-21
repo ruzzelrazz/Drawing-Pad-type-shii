@@ -15,41 +15,49 @@
     <canvas id="drawing-canvas"></canvas>
 
     <div class="toolbar">
-        <div class="toolbar-section">
-            <label for="color-picker">Brush</label>
-            <input type="color" id="color-picker" value="#000000" title="Brush Color">
+        <!-- Brush Tools -->
+        <div class="toolbar-group">
+            <div class="tool-main">
+                <input type="color" id="color-picker" value="#000000" title="Brush Color">
+                <input type="range" id="brush-size" min="1" max="100" value="10">
+            </div>
+            <div class="tool-options">
+                <button class="tool-btn active-tool" data-tool="brush" title="Freehand Brush"><i data-feather="edit-2"></i></button>
+                <button class="tool-btn" data-tool="spray" title="Spray Brush"><i data-feather="wind"></i></button>
+                <button class="tool-btn" data-tool="calligraphy" title="Calligraphy Brush"><i data-feather="pen-tool"></i></button>
+                <button class="tool-btn" data-tool="eraser" title="Eraser"><i data-feather="hard-drive"></i></button>
+            </div>
         </div>
 
-        <div class="toolbar-section">
-            <label for="brush-size">Size</label>
-            <input type="range" id="brush-size" min="1" max="50" value="5">
+        <!-- Shape Tools -->
+        <div class="toolbar-group">
+             <div class="tool-options">
+                <button class="tool-btn" data-tool="line" title="Line"><i data-feather="minus"></i></button>
+                <button class="tool-btn" data-tool="rectangle" title="Rectangle"><i data-feather="square"></i></button>
+                <button class="tool-btn" data-tool="circle" title="Circle"><i data-feather="circle"></i></button>
+            </div>
         </div>
 
-        <div class="toolbar-section actions">
-            <button id="undo-btn" class="tool-btn" title="Undo">
-                <i data-feather="corner-up-left"></i>
-            </button>
-            <button id="redo-btn" class="tool-btn" title="Redo">
-                <i data-feather="corner-up-right"></i>
-            </button>
+        <!-- View & Action Tools -->
+        <div class="toolbar-group">
+            <div class="tool-options">
+                <button class="tool-btn" data-tool="pan" title="Pan & Zoom"><i data-feather="move"></i></button>
+                <button class="tool-btn" id="undo-btn" title="Undo"><i data-feather="corner-up-left"></i></button>
+                <button class="tool-btn" id="redo-btn" title="Redo"><i data-feather="corner-up-right"></i></button>
+            </div>
+        </div>
+        
+        <!-- Settings & File Tools -->
+        <div class="toolbar-group">
+            <div class="tool-main">
+                 <input type="color" id="bg-color-picker" value="#ffffff" title="Background Color">
+            </div>
+            <div class="tool-options">
+                <button class="tool-btn" id="clear-btn" title="Clear Canvas"><i data-feather="trash-2"></i></button>
+                <button class="tool-btn" id="download-btn" title="Download PNG"><i data-feather="download"></i></button>
+            </div>
         </div>
 
-        <div class="toolbar-section actions">
-             <button id="eraser-btn" class="tool-btn" title="Eraser">
-                <i data-feather="edit-3"></i>
-            </button>
-            <button id="clear-btn" class="tool-btn" title="Clear Canvas">
-                <i data-feather="trash-2"></i>
-            </button>
-        </div>
-
-        <div class="toolbar-section advanced">
-            <label for="bg-color-picker">Background</label>
-            <input type="color" id="bg-color-picker" value="#ffffff" title="Background Color">
-            <button id="download-btn" class="tool-btn" title="Download PNG">
-                <i data-feather="download"></i>
-            </button>
-        </div>
     </div>
 
     <script src="main.js"></script>
