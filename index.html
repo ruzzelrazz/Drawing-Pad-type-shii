@@ -1,14 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Pad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+    <canvas id="drawing-canvas"></canvas>
+
+    <div class="toolbar">
+        <div class="toolbar-section">
+            <label for="color-picker">Brush</label>
+            <input type="color" id="color-picker" value="#000000" title="Brush Color">
+        </div>
+
+        <div class="toolbar-section">
+            <label for="brush-size">Size</label>
+            <input type="range" id="brush-size" min="1" max="50" value="5">
+        </div>
+
+        <div class="toolbar-section actions">
+            <button id="undo-btn" class="tool-btn" title="Undo">
+                <i data-feather="corner-up-left"></i>
+            </button>
+            <button id="redo-btn" class="tool-btn" title="Redo">
+                <i data-feather="corner-up-right"></i>
+            </button>
+        </div>
+
+        <div class="toolbar-section actions">
+             <button id="eraser-btn" class="tool-btn" title="Eraser">
+                <i data-feather="edit-3"></i>
+            </button>
+            <button id="clear-btn" class="tool-btn" title="Clear Canvas">
+                <i data-feather="trash-2"></i>
+            </button>
+        </div>
+
+        <div class="toolbar-section advanced">
+            <label for="bg-color-picker">Background</label>
+            <input type="color" id="bg-color-picker" value="#ffffff" title="Background Color">
+            <button id="download-btn" class="tool-btn" title="Download PNG">
+                <i data-feather="download"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
